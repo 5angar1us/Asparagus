@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="~/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/Asparagus.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+       
+        <!--основной контент-->
+         <div class="wrapper">
+
+            <main role="main" class="content pb-3">
+                @RenderBody()
+            </main>
+           
+        </div>
+        <footer class="footer">
+            <div class="container">
+                © 2023 - From Hell
+            </div>
+           
+        </footer>
+        <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/index.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+
+</html>
