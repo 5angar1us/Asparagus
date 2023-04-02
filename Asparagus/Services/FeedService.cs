@@ -25,14 +25,13 @@ namespace Asparagus.Services
             _dbContext.SaveChanges();
         }
 
-        public IReadOnlyList<FeedItem> GetAll()
+        public IReadOnlyList<FeedItem> GetFeed()
         {
             var feed = _dbContext.Users
                 .ToLookup(message => message.Email)
                 .Select(messageGroup => NumberMessages(messageGroup))
                 .SelectMany(x => x)
-                .OrderBy(message => message.DateTime)
-                .Reverse()
+                .OrderByDescending(message => message.DateTime)
                 .ToList();
 
             return feed;

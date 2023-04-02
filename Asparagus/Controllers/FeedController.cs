@@ -47,7 +47,7 @@ namespace Asparagus
 
         public ActionResult List() {
 
-            return View(FeedService.GetAll()); 
+            return View(FeedService.GetFeed()); 
         }
     }
 }
