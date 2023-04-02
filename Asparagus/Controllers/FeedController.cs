@@ -37,7 +37,6 @@ namespace Asparagus
             if (ModelState.IsValid == false) return View(message);
             try
             {
-
                 FeedService.Add(message);
                 return RedirectToAction(nameof(Index));
             }
