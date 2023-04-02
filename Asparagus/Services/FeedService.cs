@@ -21,13 +21,13 @@ namespace Asparagus.Services
         {
             var user = new Message(message.Name, message.Email, DateTime.Now);
 
-            _dbContext.Users.Add(user);
+            _dbContext.Messages.Add(user);
             _dbContext.SaveChanges();
         }
 
         public IReadOnlyList<FeedItem> GetFeed()
         {
-            var feed = _dbContext.Users
+            var feed = _dbContext.Messages
                 .ToLookup(message => message.Email)
                 .Select(messageGroup => NumberMessages(messageGroup))
                 .SelectMany(x => x)

@@ -5,7 +5,7 @@ namespace Asparagus.Persistance
 {
     public class ApplicationDBcontext : DbContext, IApplicationDBcontext
     {
-        public DbSet<Message> Users { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         public ApplicationDBcontext(DbContextOptions<ApplicationDBcontext> options)
             : base(options) { }
