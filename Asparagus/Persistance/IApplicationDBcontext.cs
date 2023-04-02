@@ -5,6 +5,10 @@ namespace Asparagus.Persistance
 {
     public interface IApplicationDBcontext
     {
-        DbSet<Message> Users { get; set; }
+        DbSet<Message> Messages { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+
+        int SaveChanges();
     }
 }

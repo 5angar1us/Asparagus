@@ -10,7 +10,7 @@ namespace Asparagus.Services
 {
     public class FeedService
     {
-        public ApplicationDBcontext _dbContext;
+        public IApplicationDBcontext _dbContext;
 
         public FeedService(ApplicationDBcontext dbContext)
         {
