@@ -20,7 +20,7 @@ namespace Asparagus
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(FeedService.GetFeed());
         }
 
         [HttpGet]
@@ -34,10 +34,12 @@ namespace Asparagus
         [ValidateAntiForgeryToken]
         public ActionResult Create(MessageDto message)
         {
+            if (ModelState.IsValid == false) return View(message);
             try
             {
+
                 FeedService.Add(message);
-                return RedirectToAction(nameof(List));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -45,9 +47,6 @@ namespace Asparagus
             }
         }
 
-        public ActionResult List() {
 
-            return View(FeedService.GetFeed()); 
-        }
     }
 }
