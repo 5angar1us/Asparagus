@@ -9,6 +9,11 @@
             DateTime = dateTime;
         }
 
+        public Message()
+        {
+
+        }
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }
